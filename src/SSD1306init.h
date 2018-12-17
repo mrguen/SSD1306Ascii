@@ -116,6 +116,35 @@ struct DevType {
   const uint8_t colOffset;
 };
 //------------------------------------------------------------------------------
+/** Initialization commands for a 64x32 SSD1306 OLED display (by TG) */
+static const uint8_t MEM_TYPE SSD1306_64x32init[] = {
+    // Init sequence for 64x48 Micro OLED module
+    SSD1306_DISPLAYOFF,
+    SSD1306_SETDISPLAYCLOCKDIV, 0x80,  // the suggested ratio 0x80
+    SSD1306_SETMULTIPLEX, 0x1F,        // ratio 32
+    SSD1306_SETDISPLAYOFFSET, 0x0,     // no offset
+    SSD1306_SETSTARTLINE | 0x0,        // line #0
+    SSD1306_CHARGEPUMP, 0x14,          // internal vcc
+    SSD1306_MEMORYMODE, 0x02,          // page mode
+    SSD1306_SEGREMAP | 0x1,            // column 127 mapped to SEG0
+    SSD1306_COMSCANDEC,                // column scan direction reversed
+    SSD1306_SETCOMPINS, 0x12,          // alt COM pins, disable remap
+    SSD1306_SETCONTRAST, 0x7F,         // contrast level 127
+    SSD1306_SETPRECHARGE, 0xF1,        // pre-charge period (1, 15)
+    SSD1306_SETVCOMDETECT, 0x40,       // vcomh regulator level
+    SSD1306_DISPLAYALLON_RESUME,
+    SSD1306_NORMALDISPLAY,
+    SSD1306_DISPLAYON
+};
+/** Initialize a 64x32 Micro OLED display. */
+static const DevType MEM_TYPE SSD1306_64x32 = {
+  SSD1306_64x32init,
+  sizeof(SSD1306_64x32init),
+  64,
+  32,
+  32
+};
+//------------------------------------------------------------------------------
 /** Initialization commands for a 64x48 Micro OLED display (by r7) */
 static const uint8_t MEM_TYPE MicroOLED64x48init[] = {
     // Init sequence for 64x48 Micro OLED module
