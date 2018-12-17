@@ -7,7 +7,10 @@
  * Note that the build environment only holds a font in Flash if its selected
  * so there is no penalty to including a font file here if its not used
  */
-
+/**
+ * @file allFonts.h
+ * @brief Font definitions.
+ */
 #ifndef _allFonts_h_
 #define _allFonts_h_
 
@@ -24,12 +27,23 @@
 #endif  // __AVR__
 //------------------------------------------------------------------------------
 // Font Indices
-#define FONT_LENGTH			  0
-#define FONT_FIXED_WIDTH	2
-#define FONT_HEIGHT			  3
-#define FONT_FIRST_CHAR		4
-#define FONT_CHAR_COUNT		5
-#define FONT_WIDTH_TABLE	6
+/** No longer used Big Endian length field. Now indicates font type.
+ *
+ * 00 00 (fixed width font with 1 padding pixel on right and below)
+ * 
+ * 00 01 (fixed width font with no padding pixels)
+ */
+#define FONT_LENGTH      0
+/** Maximum character width. */
+#define FONT_WIDTH       2
+/** Font hight in pixels */ 
+#define FONT_HEIGHT      3
+/** Ascii value of first character */
+#define FONT_FIRST_CHAR  4
+/** count of characters in font. */
+#define FONT_CHAR_COUNT  5
+/** Offset to width table. */
+#define FONT_WIDTH_TABLE 6
 //
 // FONT_LENGTH is a 16 bit Big Endian length field.
 // Unfortunately, FontCreator2 screwed up the value it put in the field
@@ -37,7 +51,7 @@
 // some special things.
 // 00 00 (fixed width font with 1 padding pixel on right and below)
 // 00 01 (fixed width font with no padding pixels)
-
+// FONT_WIDTH it the max character width.
 // any other value means variable width font in FontCreator2 (thiele)
 // format with pixel padding
 
@@ -82,10 +96,6 @@
 #include "fixednums15x31.h"      // fixed width font - + , - . / [0-9] and :
 
 #include "CalBlk36.h"
-#include "CalBlk36nums.h" 					// added TG 05.07.2018 only , . [0-9]/
-#include "CalBlk36blank.h" 					// added TG 05.07.2018 only space
-#include "CalBlk36_shortPoint.h" 		// added TG 05.07.2018 point shortened to allow to display 5 chars + one point full size
-
 #include "CalLite24.h"
 #include "lcdnums12x16.h"	// font that looks like LCD digits
 #include "lcdnums14x24.h"	// font that looks like LCD digits
