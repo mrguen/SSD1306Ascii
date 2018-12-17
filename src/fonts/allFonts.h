@@ -96,6 +96,9 @@
 #include "fixednums15x31.h"      // fixed width font - + , - . / [0-9] and :
 
 #include "CalBlk36.h"
+#include "CalBlk36nums.h" 		// added TG 05.07.2018 only , . [0-9]/
+#include "CalBlk36blank.h" 		// added TG 05.07.2018 only space
+#include "CalBlk36_shortPoint.h" 	// added TG 05.07.2018 point shortened to allow to display 5 chars + one point full size
 #include "CalLite24.h"
 #include "lcdnums12x16.h"	// font that looks like LCD digits
 #include "lcdnums14x24.h"	// font that looks like LCD digits
