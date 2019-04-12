@@ -56,6 +56,30 @@ class SSD1306AsciiWire : public SSD1306Ascii {
     begin(dev, i2cAddr);
   }
   /**
+   * @brief Re-Initialize the display controller.
+   *
+   * @param[in] dev A device initialization structure.
+   * @param[in] i2cAddr The I2C address of the display controller.
+   */
+  void reBegin(const DevType* dev, uint8_t i2cAddr) {
+#if OPTIMIZE_I2C
+    m_nData = 0;
+#endif  // OPTIMIZE_I2C
+    m_i2cAddr = i2cAddr;
+    reInit(dev);
+  }
+  /**
+   * @brief Initialize the display controller.
+   *
+   * @param[in] dev A device initialization structure.
+   * @param[in] i2cAddr The I2C address of the display controller.
+   * @param[in] rst The display controller reset pin.
+   */
+  void reBegin(const DevType* dev, uint8_t i2cAddr, uint8_t rst) {
+    oledReset(rst);
+    reBegin(dev, i2cAddr);
+  }
+  /**
    * @brief Set the I2C clock rate to 400 kHz.
    * Deprecated use Wire.setClock(400000L)
    */

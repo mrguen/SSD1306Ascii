@@ -115,6 +115,17 @@ void SSD1306Ascii::init(const DevType* dev) {
   clear();
 }
 //------------------------------------------------------------------------------
+void SSD1306Ascii::reInit(const DevType* dev) {
+  m_col = 0;
+  m_row = 0;
+  uint8_t size = readFontByte(&dev->initSize);
+  m_displayWidth = readFontByte(&dev->lcdWidth);
+  m_displayHeight = readFontByte(&dev->lcdHeight);
+  m_colOffset = readFontByte(&dev->colOffset);
+  clear();
+}
+
+//------------------------------------------------------------------------------
 void SSD1306Ascii::invertDisplay(bool invert) {
   ssd1306WriteCmd(invert ? SSD1306_INVERTDISPLAY : SSD1306_NORMALDISPLAY);
 }
