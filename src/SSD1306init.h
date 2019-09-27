@@ -118,7 +118,7 @@ struct DevType {
 //------------------------------------------------------------------------------
 /** Initialization commands for a 64x32 SSD1306 OLED display (by TG) */
 static const uint8_t MEM_TYPE SSD1306_64x32init[] = {
-    // Init sequence for 64x48 Micro OLED module
+    // Init sequence for generic 64x32 Micro OLED module
     SSD1306_DISPLAYOFF,
     SSD1306_SETDISPLAYCLOCKDIV, 0x80,  // the suggested ratio 0x80
     SSD1306_SETMULTIPLEX, 0x1F,        // ratio 32

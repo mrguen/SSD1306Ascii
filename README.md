@@ -1,3 +1,10 @@
+This version by mrguen based on Greiman is work with this main differences:
+
+* Init param for generic 64x32 I2C module.
+* reInit and reBegin methods for I2C addressing that allows to instantiate an OLED object without sennding init commands again (on an already running OLED).
+* Fonts added: CalBlk36_shortPoint.h, CalBlk36blank.h, CalBlk36nums.h : reduced size fonts to display only numbers including "." and blank
+
+-----------------------
 Note: Version 1.2.x has several new examples and many changes/new features.
 
 SSD1306Ascii is an unbuffered character only library for small OLED

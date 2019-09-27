@@ -259,7 +259,14 @@ class SSD1306Ascii : public Print {
    *
    * @param[in] dev A display initialization structure.
    */
+  void reInit(const DevType* dev);
+  /**
+   * @brief Re-initialize the display controller when it has already been initialized by another instance.
+   *
+   * @param[in] dev A display initialization structure.
+   */
   void init(const DevType* dev);
+
   /**
    * @brief Set pixel mode for for entire display.
    *
